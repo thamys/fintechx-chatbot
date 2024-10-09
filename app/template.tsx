@@ -1,6 +1,6 @@
 "use client";
-import React, { PropsWithChildren } from "react";
-import { Button, ConfigProvider, Layout, Typography } from "antd";
+import React, { PropsWithChildren, use } from "react";
+import { Button, ConfigProvider, Layout, theme, Typography } from "antd";
 import { Poppins, Urbanist } from "next/font/google";
 import Image from "next/image";
 
@@ -19,14 +19,20 @@ const urbanist = Urbanist({
 });
 
 const App: React.FC<PropsWithChildren> = ({ children }) => {
+  const [isDarkMode, setIsDarkMode] = React.useState(false);
+  
+  React.useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    setIsDarkMode(mediaQuery.matches);
+    mediaQuery.addEventListener('change', (e) => setIsDarkMode(e.matches));
+  }, []);
+
   return (
     <ConfigProvider
       theme={{
+        algorithm: isDarkMode ? theme.darkAlgorithm : theme.defaultAlgorithm,
         token: {
           fontFamily: urbanist.style.fontFamily,
-          colorBgBase: "#FFFFFF",
-          colorBgContainer: "#FFFFFF",
-          colorBgLayout: "#FFFFFF",
         },
         components: {
           Typography: {
@@ -48,10 +54,10 @@ const App: React.FC<PropsWithChildren> = ({ children }) => {
     >
       <Layout className="!min-h-screen">
         <Header className="!bg-transparent !py-10 !px-10 flex justify-between align-middle gap-4">
-          <Button shape="default" type="default">
+          <Button shape="default" type="default" className="!h-[45px] !w-[45px] !rounded-2xl">
             <Image
               alt="arrow left icon"
-              src="/assets/icons/arrow-left.svg"
+              src={isDarkMode ? "/assets/icons/arrow-left-dark.svg" : "/assets/icons/arrow-left.svg"}
               width={8}
               height={14}
             />
@@ -60,7 +66,7 @@ const App: React.FC<PropsWithChildren> = ({ children }) => {
           <Button shape="default" type="link" className="!px-0">
             <Image
               alt="three-dots icon"
-              src="/assets/icons/three-dots.svg"
+              src={isDarkMode ? "/assets/icons/three-dots-dark.svg" : "/assets/icons/three-dots.svg"}
               width={32}
               height={4}
             />
