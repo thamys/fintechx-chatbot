@@ -1,5 +1,6 @@
 'use client';
 import { Form, Input } from "antd";
+import SendMesageForm from "@/app/components/SendMesageForm";
 
 type FormFieldsType = {
   message: string;
@@ -8,11 +9,7 @@ type FormFieldsType = {
 export default function Home() {
   return (
     <div className="flex flex-grow flex-col justify-end">
-      <Form>
-        <Form.Item<FormFieldsType>>
-          <Input placeholder="Send a message." />
-        </Form.Item>
-      </Form>
+      <SendMesageForm />
     </div>
   );
 }

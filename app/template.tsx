@@ -38,6 +38,11 @@ const App: React.FC<PropsWithChildren> = ({ children }) => {
             defaultBorderColor: "transparent",
             defaultShadow: "5.92px 11.84px 23.68px 0px rgba(211, 209, 216, 0.3)",
           },
+          Input: {
+            borderRadius: 7,
+            colorBorder: "#E1E1E1",
+            fontSize: 16,
+          }
         },
       }}
     >
