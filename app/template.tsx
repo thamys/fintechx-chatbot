@@ -95,7 +95,7 @@ const App: React.FC<PropsWithChildren> = ({ children }) => {
             />
           </Button>
         </Header>
-        <Content className="p-6 h-full flex flex-col flex-grow">
+        <Content className="h-full flex flex-col flex-grow">
           {children}
         </Content>
       </Layout>
