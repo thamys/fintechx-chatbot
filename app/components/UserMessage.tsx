@@ -6,7 +6,7 @@ const UserMessage: React.FC<PropsWithChildren> = ({ children }) => {
   return (
     <div className="w-full flex gap-4 justify-between items-center mt-2 py-4 px-8">
       <Image
-        className="rounded-lg flex-shrink-0"
+        className="rounded-lg flex-shrink-0 !w-10 !h-10 object-cover"
         alt="user picture"
         src="/assets/profile.png"
         width={37}

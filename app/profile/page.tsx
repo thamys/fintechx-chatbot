@@ -1,11 +1,11 @@
 "use client";
 import SendMesageForm from "@/app/components/SendMesageForm";
-import MessageCards from "./components/MessageCards";
+import MessageCards from "../components/MessageCards";
 import { theme, Typography } from "antd";
 import { Poppins } from "next/font/google";
-import UserMessage from "./components/UserMessage";
-import IAMessage from "./components/IAMessage";
-import BtnRegenerateResponse from "./components/BtnRegenerateResponse";
+import UserMessage from "../components/UserMessage";
+import IAMessage from "../components/IAMessage";
+import BtnRegenerateResponse from "../components/BtnRegenerateResponse";
 
 const suggestions = [
   "Remembers what user said earlier in the conversation",
