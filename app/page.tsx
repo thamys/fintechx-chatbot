@@ -5,6 +5,7 @@ import { theme, Typography } from "antd";
 import { Poppins } from "next/font/google";
 import UserMessage from "./components/UserMessage";
 import IAMessage from "./components/IAMessage";
+import BtnRegenerateResponse from "./components/BtnRegenerateResponse";
 
 const suggestions = [
   "Remembers what user said earlier in the conversation",
@@ -55,6 +56,7 @@ export default function Home() {
               boost the immune system and fight cancer.
             </p>
           </IAMessage>
+          <BtnRegenerateResponse />
         </div>
       </div>
       <SendMesageForm />

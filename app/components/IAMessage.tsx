@@ -10,7 +10,6 @@ const IAMessage: React.FC<PropsWithChildren> = ({ children }) => {
   return (
     <div style={{ backgroundColor: colorBgElevated }} className="w-full flex flex-col gap-4 mt-2 py-4 px-8">
       <div
-        
         className="flex gap-4 mb-2 justify-between items-center"
       >
         <Image

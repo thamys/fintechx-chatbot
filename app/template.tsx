@@ -3,6 +3,7 @@ import React, { PropsWithChildren, use } from "react";
 import { Button, ConfigProvider, Layout, theme, Typography } from "antd";
 import { Poppins, Urbanist } from "next/font/google";
 import Image from "next/image";
+import { getTheme } from "./themes";
 
 const { Header, Content } = Layout;
 
@@ -30,32 +31,8 @@ const App: React.FC<PropsWithChildren> = ({ children }) => {
   return (
     <ConfigProvider
       theme={{
-        cssVar: true,
         algorithm: isDarkMode ? theme.darkAlgorithm : theme.defaultAlgorithm,
-        token: {
-          colorPrimary: "#141718",
-          fontFamily: urbanist.style.fontFamily,
-        },
-        components: {
-          Typography: {
-            fontFamily: poppins.style.fontFamily,
-            fontWeightStrong: 500,
-          },
-          Button: {
-            defaultBg: "rgba(255, 255, 255, 0.67) !important",
-            defaultBorderColor: "transparent",
-            defaultShadow:
-              "5.92px 11.84px 23.68px 0px rgba(211, 209, 216, 0.3)",
-          },
-          Input: {
-            borderRadius: 7,
-            colorBorder: "#E1E1E1",
-            fontSize: 16,
-          },
-          Card: {
-            borderRadius: 16,
-          },
-        },
+        ...getTheme(isDarkMode ? "dark" : "light"),
       }}
     >
       <Layout className="!min-h-screen flex flex-col flex-grow">
@@ -63,7 +40,7 @@ const App: React.FC<PropsWithChildren> = ({ children }) => {
           <Button
             shape="default"
             type="default"
-            className="!h-[45px] !w-[45px] !rounded-2xl"
+            className="!h-[45px] !w-[45px] !rounded-2xl !border-none"
           >
             <Image
               alt="arrow left icon"
