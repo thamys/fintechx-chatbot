@@ -1,7 +1,8 @@
 "use client";
-import React, { PropsWithChildren } from "react";
+import React, { PropsWithChildren, Suspense } from "react";
 import { ConfigProvider, theme } from "antd";
 import { getTheme } from "./themes";
+import Loading from "./components/Loading";
 
 const App: React.FC<PropsWithChildren> = ({ children }) => {
   const [isDarkMode, setIsDarkMode] = React.useState(false);
@@ -19,7 +20,7 @@ const App: React.FC<PropsWithChildren> = ({ children }) => {
         ...getTheme(isDarkMode ? "dark" : "light"),
       }}
     >
-      {children}
+      <Suspense fallback={<Loading />}>{children}</Suspense>
     </ConfigProvider>
   );
 };
