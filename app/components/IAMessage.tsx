@@ -1,4 +1,4 @@
-import { Button, theme } from "antd";
+import { Avatar, Button, theme } from "antd";
 import Image from "next/image";
 import React, { PropsWithChildren } from "react";
 
@@ -12,13 +12,7 @@ const IAMessage: React.FC<PropsWithChildren> = ({ children }) => {
       <div
         className="flex gap-4 mb-2 justify-between items-center"
       >
-        <Image
-          className="rounded-lg flex-shrink-0"
-          alt="user picture"
-          src="/assets/logo-inverted.svg"
-          width={37}
-          height={37}
-        />
+        <Avatar size={37} shape="square" src="/assets/logo-inverted.svg" />
         <div className="flex flex-shrink-0 items-center gap-2">
           <Button type="link" className="!px-0">
             <Image
