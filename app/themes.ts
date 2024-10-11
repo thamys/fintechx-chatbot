@@ -51,6 +51,7 @@ const darkTheme: ThemeConfig = {
     Typography: {
       fontFamily: poppins.style.fontFamily,
       fontWeightStrong: 500,
+      
     },
     Button: {
       defaultBg: "#232627",

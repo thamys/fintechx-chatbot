@@ -1,65 +1,139 @@
 "use client";
-import SendMesageForm from "@/app/components/SendMesageForm";
-import MessageCards from "../components/MessageCards";
-import { theme, Typography } from "antd";
-import { Poppins } from "next/font/google";
-import UserMessage from "../components/UserMessage";
-import IAMessage from "../components/IAMessage";
-import BtnRegenerateResponse from "../components/BtnRegenerateResponse";
+import { Avatar, Badge, Flex, Progress, theme, Typography } from "antd";
+import { MenuItemType } from "antd/es/menu/interface";
+import Image from "next/image";
 
-const suggestions = [
-  "Remembers what user said earlier in the conversation",
-  "Allows user to provide. follow-up corrections With Ai",
-  "Limited knowledge of world and events after 2021",
-  "May occasionally generate incorrect information",
-  "May occasionally produce harmful instructions or biased content",
-];
-
-export default function Home() {
+export default function Profile() {
   const { useToken } = theme;
   const {
-    token: { colorTextSecondary, colorTextTertiary },
+    token: { colorText },
   } = useToken();
-  return (
-    <div className="flex flex-grow flex-col max-h-full justify-end">
-      <div className="relative h-full max-h-full mb-4 flex-grow overflow-y-scroll justify-end">
-        <div
-          id="chat-box"
-          className="absolute max-h-full bottom-0 flex flex-col gap-4"
-        >
-          <Typography.Title
-            level={1}
-            style={{ color: colorTextTertiary }}
-            className="text-center"
-          >
-            BrainBox
+
+  const items: MenuItemType[] = [
+    {
+      key: "preferences",
+      label: "Preferences",
+      itemIcon: (
+        <Image
+          alt="Icon Chevron"
+          width={7}
+          height={13}
+          src="/assets/icons/chevron.svg"
+          className="mt-3"
+        />
+      ),
+      icon: (
+        <Image
+          alt="Icon Settings"
+          width={32}
+          height={32}
+          src="/assets/icons/settings.svg"
+        />
+      ),
+    },
+    {
+      key: "account-security",
+      label: (
+        <div className="flex flex-col gap-2">
+          <Typography.Title level={5} className="!mb-0">
+            Account Security
           </Typography.Title>
-          {suggestions.map((suggestion, index) => (
-            <MessageCards key={index}>
-              <p
-                className="text-center !mb-0 font-medium"
-              >
-                {suggestion}
-              </p>
-            </MessageCards>
-          ))}
-          <UserMessage>
-            <p>Natural Foods for Cancer patience</p>
-          </UserMessage>
-          <IAMessage>
-            <p>
-              A diet rich in natural foods can be beneficial for cancer
-              patients. Here are some natural foods that you may consider:
-              <br/>
-              Leafy green vegetables - spinach, kale, collard greens, and others are
-              packed with vitamins, minerals, and antioxidants that can help to
-              boost the immune system and fight cancer.
-            </p>
-          </IAMessage>
-          <BtnRegenerateResponse />
+          <Progress percent={80} strokeColor={colorText} showInfo={false} />
+          <Typography.Text type="secondary">Excellent</Typography.Text>
         </div>
-      </div>
-      <SendMesageForm />
+      ),
+      itemIcon: (
+        <Image
+          alt="Icon Chevron"
+          width={7}
+          height={13}
+          src="/assets/icons/chevron.svg"
+          className="mt-3"
+        />
+      ),
+      icon: (
+        <Image
+          alt="Icon Lock"
+          width={32}
+          height={32}
+          src="/assets/icons/lock.svg"
+        />
+      ),
+    },
+    {
+      key: "customer-support",
+      label: "Customer Support",
+      itemIcon: (
+        <Image
+          alt="Icon Chevron"
+          width={7}
+          height={13}
+          src="/assets/icons/chevron.svg"
+          className="mt-3"
+        />
+      ),
+      icon: (
+        <Image
+          alt="Icon Help"
+          width={32}
+          height={32}
+          src="/assets/icons/help.svg"
+        />
+      ),
+    },
+    {
+      key: "logout",
+      label: "Logout",
+      icon: (
+        <Image
+          alt="Icon Logout"
+          width={32}
+          height={32}
+          src="/assets/icons/logout.svg"
+        />
+      ),
+    },
+  ];
+
+  return (
+    <div className="p-8">
+      <Flex className="flex-col" gap={4} justify="center" align="center">
+        <Badge
+          dot
+          size="default"
+          status="success"
+          offset={[-15, 90]}
+          style={{
+            inlineSize: "22px",
+            blockSize: "22px",
+            border: "4px solid #FFFFFF",
+            boxShadow: "none",
+          }}
+        >
+          <Avatar size={105} src="/assets/profile.png" />
+        </Badge>
+        <Typography.Title level={3} className="!mb-0 mt-3">
+          Tom Hillson
+        </Typography.Title>
+        <Typography.Text type="secondary">Tomhill@mail.com</Typography.Text>
+      </Flex>
+      <nav className="mt-20 px-4 flex flex-col gap-8">
+        {items.map((item: MenuItemType) => (
+          <div className="flex gap-4 justify-between items-start">
+            {item.icon}
+            <div className="flex-grow mt-[5px]">
+              {typeof item.label === "string" ? (
+                <Typography.Title level={5} className="!mb-0">
+                  {item.label}
+                </Typography.Title>
+              ) : (
+                item.label
+              )}
+            </div>
+            <>{item.itemIcon}</>
+          </div>
+        ))}
+      </nav>
     </div>
   );
 }

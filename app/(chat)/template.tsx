@@ -24,7 +24,7 @@ const App: React.FC<PropsWithChildren> = ({ children }) => {
 
   return (
     <Layout className="!min-h-screen flex flex-col flex-grow">
-      <Header className="!bg-transparent !py-10 !px-10 flex justify-between align-middle gap-4">
+      <Header className="!bg-transparent !py-10 !px-10 flex justify-between items-center gap-4">
         <Button
           shape="default"
           type="default"
@@ -44,6 +44,7 @@ const App: React.FC<PropsWithChildren> = ({ children }) => {
         <Typography.Title
           level={3}
           style={{ fontFamily: poppins.style.fontFamily }}
+          className="!mb-0"
         >
           Health
         </Typography.Title>
