@@ -24,7 +24,7 @@ const App: React.FC<PropsWithChildren> = ({ children }) => {
 
   return (
     <Layout className="!min-h-screen w-full flex flex-col flex-grow">
-      <Header className="!bg-transparent !py-10 !px-10 flex justify-between items-center gap-4">
+      <Header className="!bg-transparent !py-14 !px-10 flex justify-between items-center gap-4">
         <Button
           shape="default"
           type="default"
@@ -46,13 +46,10 @@ const App: React.FC<PropsWithChildren> = ({ children }) => {
           style={{ fontFamily: poppins.style.fontFamily }}
           className="text-center flex-grow pr-14 !mb-0"
         >
-          Profile
+          Preference
         </Typography.Title>
       </Header>
       <Content className="h-full flex flex-col flex-grow">{children}</Content>
-      <Footer>
-        <MenuBottom />
-      </Footer>
     </Layout>
   );
 };

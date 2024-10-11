@@ -11,16 +11,16 @@ export default function Profile() {
 
   const items: MenuItemType[] = [
     {
-      key: "preferences",
-      label: "Preferences",
-      itemIcon: (
-        <Image
-          alt="Icon Chevron"
-          width={7}
-          height={13}
-          src="/assets/icons/chevron.svg"
-          className="mt-3"
-        />
+      key: "account-information",
+      label: (
+        <div className="flex flex-col gap-1">
+          <Typography.Title level={5} className="!mb-0">
+            Account Information
+          </Typography.Title>
+          <Typography.Text type="secondary">
+            Change your Account information
+          </Typography.Text>
+        </div>
       ),
       icon: (
         <Image
@@ -32,24 +32,16 @@ export default function Profile() {
       ),
     },
     {
-      key: "account-security",
+      key: "password",
       label: (
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-1">
           <Typography.Title level={5} className="!mb-0">
-            Account Security
+            Password
           </Typography.Title>
-          <Progress percent={80} strokeColor={colorText} showInfo={false} />
-          <Typography.Text type="secondary">Excellent</Typography.Text>
+          <Typography.Text type="secondary">
+            Change your Password
+          </Typography.Text>
         </div>
-      ),
-      itemIcon: (
-        <Image
-          alt="Icon Chevron"
-          width={7}
-          height={13}
-          src="/assets/icons/chevron.svg"
-          className="mt-3"
-        />
       ),
       icon: (
         <Image
@@ -61,76 +53,58 @@ export default function Profile() {
       ),
     },
     {
-      key: "customer-support",
-      label: "Customer Support",
-      itemIcon: (
-        <Image
-          alt="Icon Chevron"
-          width={7}
-          height={13}
-          src="/assets/icons/chevron.svg"
-          className="mt-3"
-        />
+      key: "payment-methods",
+      label: (
+        <div className="flex flex-col gap-1">
+          <Typography.Title level={5} className="!mb-0">
+            Payment Methods
+          </Typography.Title>
+          <Typography.Text type="secondary">
+            Add Your Credit / Credit Cards
+          </Typography.Text>
+        </div>
       ),
       icon: (
         <Image
-          alt="Icon Help"
+          alt="Icon Settings"
           width={32}
           height={32}
-          src="/assets/icons/help.svg"
+          src="/assets/icons/settings.svg"
         />
       ),
     },
     {
-      key: "logout",
-      label: "Logout",
+      key: "invite-friends",
+      label: (
+        <div className="flex flex-col gap-1">
+          <Typography.Title level={5} className="!mb-0">
+            Invite Your Friends
+          </Typography.Title>
+          <Typography.Text type="secondary">
+            Get $3 For Each Invitation!
+          </Typography.Text>
+        </div>
+      ),
       icon: (
         <Image
-          alt="Icon Logout"
+          alt="Icon Lock"
           width={32}
           height={32}
-          src="/assets/icons/logout.svg"
+          src="/assets/icons/lock.svg"
         />
       ),
     },
   ];
 
   return (
-    <div className="p-8">
-      <Flex className="flex-col" gap={4} justify="center" align="center">
-        <Badge
-          dot
-          size="default"
-          status="success"
-          offset={[-15, 90]}
-          style={{
-            inlineSize: "22px",
-            blockSize: "22px",
-            border: "4px solid #FFFFFF",
-            boxShadow: "none",
-          }}
-        >
-          <Avatar size={105} src="/assets/profile.png" />
-        </Badge>
-        <Typography.Title level={3} className="!mb-0 mt-3">
-          Tom Hillson
-        </Typography.Title>
-        <Typography.Text type="secondary">Tomhill@mail.com</Typography.Text>
-      </Flex>
-      <nav className="mt-20 px-4 flex flex-col gap-8">
+    <div className="px-10 py-8">
+      <nav className="mt-6 flex flex-col gap-12">
         {items.map((item: MenuItemType) => (
-          <div className="flex gap-4 justify-between items-start">
+          <div className="flex gap-6 justify-between items-center">
             {item.icon}
-            <div className="flex-grow mt-[5px]">
-              {typeof item.label === "string" ? (
-                <Typography.Title level={5} className="!mb-0">
-                  {item.label}
-                </Typography.Title>
-              ) : (
-                item.label
-              )}
+            <div className="flex-grow">
+              {item.label}
             </div>
-            <>{item.itemIcon}</>
           </div>
         ))}
       </nav>
