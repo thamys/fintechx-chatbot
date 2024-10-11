@@ -1,10 +1,6 @@
 import React, { useState } from "react";
-import type { MenuProps } from "antd";
-import { Badge, Flex, Menu, Tabs } from "antd";
+import { Tabs } from "antd";
 import Image from "next/image";
-import { MenuItemType } from "antd/es/menu/interface";
-import Link from "next/link";
-import { TabsType } from "antd/es/tabs";
 
 const items = [
   {
@@ -62,7 +58,7 @@ const MenuBottom: React.FC = () => {
 
   return (
     <Tabs
-      defaultActiveKey="profile"
+      defaultActiveKey={current}
       tabPosition="top"
       size="large"
       type="card"

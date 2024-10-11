@@ -1,5 +1,5 @@
 "use client";
-import { Avatar, Badge, Flex, Progress, theme, Typography } from "antd";
+import { Avatar, Badge, Button, Flex, Progress, theme, Typography } from "antd";
 import { MenuItemType } from "antd/es/menu/interface";
 import Image from "next/image";
 
@@ -9,131 +9,41 @@ export default function Profile() {
     token: { colorText },
   } = useToken();
 
-  const items: MenuItemType[] = [
-    {
-      key: "preferences",
-      label: "Preferences",
-      itemIcon: (
-        <Image
-          alt="Icon Chevron"
-          width={7}
-          height={13}
-          src="/assets/icons/chevron.svg"
-          className="mt-3"
-        />
-      ),
-      icon: (
-        <Image
-          alt="Icon Settings"
-          width={32}
-          height={32}
-          src="/assets/icons/settings.svg"
-        />
-      ),
-    },
-    {
-      key: "account-security",
-      label: (
-        <div className="flex flex-col gap-2">
-          <Typography.Title level={5} className="!mb-0">
-            Account Security
-          </Typography.Title>
-          <Progress percent={80} strokeColor={colorText} showInfo={false} />
-          <Typography.Text type="secondary">Excellent</Typography.Text>
-        </div>
-      ),
-      itemIcon: (
-        <Image
-          alt="Icon Chevron"
-          width={7}
-          height={13}
-          src="/assets/icons/chevron.svg"
-          className="mt-3"
-        />
-      ),
-      icon: (
-        <Image
-          alt="Icon Lock"
-          width={32}
-          height={32}
-          src="/assets/icons/lock.svg"
-        />
-      ),
-    },
-    {
-      key: "customer-support",
-      label: "Customer Support",
-      itemIcon: (
-        <Image
-          alt="Icon Chevron"
-          width={7}
-          height={13}
-          src="/assets/icons/chevron.svg"
-          className="mt-3"
-        />
-      ),
-      icon: (
-        <Image
-          alt="Icon Help"
-          width={32}
-          height={32}
-          src="/assets/icons/help.svg"
-        />
-      ),
-    },
-    {
-      key: "logout",
-      label: "Logout",
-      icon: (
-        <Image
-          alt="Icon Logout"
-          width={32}
-          height={32}
-          src="/assets/icons/logout.svg"
-        />
-      ),
-    },
-  ];
-
   return (
-    <div className="p-8">
-      <Flex className="flex-col" gap={4} justify="center" align="center">
-        <Badge
-          dot
-          size="default"
-          status="success"
-          offset={[-15, 90]}
-          style={{
-            inlineSize: "22px",
-            blockSize: "22px",
-            border: "4px solid #FFFFFF",
-            boxShadow: "none",
-          }}
-        >
-          <Avatar size={105} src="/assets/profile.png" />
-        </Badge>
-        <Typography.Title level={3} className="!mb-0 mt-3">
-          Tom Hillson
+    <div className="px-10 py-8 flex flex-col flex-grow h-full gap-10 justify-center items-center">
+      <Image
+        alt="Invite Friends"
+        width={167}
+        height={245}
+        src="/assets/refer-a-friend-illustration.svg"
+      />
+      <div className="w-full text-center px-4">
+        <Typography.Title level={3} className="text-center mt-8 !mb-0">
+          Refer A Friend
         </Typography.Title>
-        <Typography.Text type="secondary">Tomhill@mail.com</Typography.Text>
-      </Flex>
-      <nav className="mt-20 px-4 flex flex-col gap-8">
-        {items.map((item: MenuItemType) => (
-          <div className="flex gap-4 justify-between items-start">
-            {item.icon}
-            <div className="flex-grow mt-[5px]">
-              {typeof item.label === "string" ? (
-                <Typography.Title level={5} className="!mb-0">
-                  {item.label}
-                </Typography.Title>
-              ) : (
-                item.label
-              )}
-            </div>
-            <>{item.itemIcon}</>
-          </div>
-        ))}
-      </nav>
+        <Typography.Text
+          type="secondary"
+          className="text-center !mt-0 !text-lg !font-light"
+        >
+          Share Your Promo Code & Get $3 For Each Friend
+        </Typography.Text>
+      </div>
+      <Button
+        type="primary"
+        size="large"
+        className="!h-16 w-full !flex !justify-between !items-center !border-2 !border-white !rounded-2xl mt-8"
+        icon={
+          <Image
+            alt="Icon Copu"
+            width={24}
+            height={24}
+            src="/assets/icons/copy.svg"
+          />
+        }
+        iconPosition="end"
+      >
+        BrainAiPartnerMR
+      </Button>
     </div>
   );
 }

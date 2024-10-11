@@ -24,35 +24,16 @@ const App: React.FC<PropsWithChildren> = ({ children }) => {
 
   return (
     <Layout className="!min-h-screen w-full flex flex-col flex-grow">
-      <Header className="!bg-transparent !py-10 !px-10 flex justify-between items-center gap-4">
-        <Button
-          shape="default"
-          type="default"
-          className="!h-[45px] !w-[45px] !rounded-2xl !border-none"
-        >
-          <Image
-            alt="arrow left icon"
-            src={
-              isDarkMode
-                ? "/assets/icons/arrow-left-dark.svg"
-                : "/assets/icons/arrow-left.svg"
-            }
-            width={8}
-            height={14}
-          />
-        </Button>
+      <Header className="!bg-transparent !py-14 !px-10 flex justify-center items-center">
         <Typography.Title
           level={4}
           style={{ fontFamily: poppins.style.fontFamily }}
-          className="text-center flex-grow pr-14 !mb-0"
+          className="text-center flex-grow !mb-0"
         >
-          Profile
+          Invite Friends
         </Typography.Title>
       </Header>
       <Content className="h-full flex flex-col flex-grow">{children}</Content>
-      <Footer>
-        <MenuBottom />
-      </Footer>
     </Layout>
   );
 };
