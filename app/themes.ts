@@ -44,6 +44,7 @@ const lightTheme: ThemeConfig = {
 const darkTheme: ThemeConfig = {
   token: {
     colorPrimary: "#141718",
+    colorPrimaryActive: "#FFFFFF",
     colorBgElevated: "#232627",
     fontFamily: urbanist.style.fontFamily,
   },

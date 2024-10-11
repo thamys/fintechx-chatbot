@@ -3,8 +3,9 @@ import React, { PropsWithChildren } from "react";
 import { Button, Layout, Typography } from "antd";
 import { Poppins } from "next/font/google";
 import Image from "next/image";
+import MenuBottom from "../components/MenuBottom";
 
-const { Header, Content } = Layout;
+const { Header, Content, Footer } = Layout;
 
 const poppins = Poppins({
   subsets: ["latin-ext"],
@@ -22,7 +23,7 @@ const App: React.FC<PropsWithChildren> = ({ children }) => {
   }, []);
 
   return (
-    <Layout className="!min-h-screen flex flex-col flex-grow">
+    <Layout className="!min-h-screen w-full flex flex-col flex-grow">
       <Header className="!bg-transparent !py-10 !px-10 flex justify-between items-center gap-4">
         <Button
           shape="default"
@@ -49,6 +50,9 @@ const App: React.FC<PropsWithChildren> = ({ children }) => {
         </Typography.Title>
       </Header>
       <Content className="h-full flex flex-col flex-grow">{children}</Content>
+      <Footer>
+        <MenuBottom />
+      </Footer>
     </Layout>
   );
 };
