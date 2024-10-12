@@ -1,15 +1,40 @@
 "use client";
-import { theme, Form, Input  } from "antd";
+import { theme, Form, Input, Button, Spin } from "antd";
 import UserMessage from "../components/UserMessage";
 import IAMessage from "../components/IAMessage";
 import BtnRegenerateResponse from "../components/BtnRegenerateResponse";
 import Image from "next/image";
+import { generateResponse } from "./actions";
+import { useState } from "react";
 
 type FormFieldsType = {
   message: string;
 };
 
+type ChatMessageType = {
+  message: string;
+  isUser: boolean;
+};
+
 export default function Home() {
+  const [form] = Form.useForm();
+  const [chatMessages, setChatMessages] = useState<ChatMessageType[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isRegenerating, setIsRegenerating] = useState(false);
+
+  async function onSendMessage(values: FormFieldsType) {
+    setIsLoading(true);
+    const message = values.message;
+    setChatMessages((prev) => [...prev, { message, isUser: true }]);
+    form.resetFields();
+    const response = await generateResponse(message);
+    setChatMessages((prev) => [
+      ...prev,
+      { message: response.toString(), isUser: false },
+    ]);
+    setIsLoading(false);
+  }
+
   return (
     <div className="flex flex-grow flex-col max-h-full justify-end">
       <div className="relative h-full max-h-full mb-4 flex-grow overflow-y-scroll justify-end">
@@ -17,28 +42,52 @@ export default function Home() {
           id="chat-box"
           className="absolute max-h-full bottom-0 flex flex-col gap-4"
         >
-          
-          <UserMessage>
-            <p>Natural Foods for Cancer patience</p>
-          </UserMessage>
-          <IAMessage>
-            <p>
-              A diet rich in natural foods can be beneficial for cancer
-              patients. Here are some natural foods that you may consider:
-              <br/>
-              Leafy green vegetables - spinach, kale, collard greens, and others are
-              packed with vitamins, minerals, and antioxidants that can help to
-              boost the immune system and fight cancer.
-            </p>
-          </IAMessage>
+          {chatMessages.map((chatMessage, index) =>
+            chatMessage.isUser ? (
+              <UserMessage key={index}>
+                <p>{chatMessage.message}</p>
+              </UserMessage>
+            ) : (
+              <IAMessage key={index}>
+                <p>{chatMessage.message}</p>
+              </IAMessage>
+            )
+          )}
           <BtnRegenerateResponse />
         </div>
       </div>
-      <Form className="send-a-message-box !mx-8 !my-6">
-      <Form.Item<FormFieldsType> className="!mb-0">
-        <Input placeholder="Send a message." className="h-[48px]" suffix={<Image alt="icon send" src="/assets/icons/send.svg" width={23} height={23} /> } />
-      </Form.Item>
-    </Form>
+      <Form
+        disabled={isLoading || isRegenerating}
+        form={form}
+        onFinish={onSendMessage}
+        className="send-a-message-box !mx-8 !my-6"
+      >
+        <Form.Item<FormFieldsType>
+          name="message"
+          rules={[{ required: true }]}
+          className="!mb-0"
+        >
+          <Input
+            disabled={isLoading || isRegenerating}
+            placeholder="Send a message."
+            className="h-[48px] !pr-0"
+            suffix={
+              <Button type="text" htmlType="submit">
+                {isLoading || isRegenerating ? (
+                  <Spin size="small" />
+                ) : (
+                  <Image
+                    alt="icon send"
+                    src="/assets/icons/send.svg"
+                    width={23}
+                    height={23}
+                  />
+                )}
+              </Button>
+            }
+          />
+        </Form.Item>
+      </Form>
     </div>
   );
 }

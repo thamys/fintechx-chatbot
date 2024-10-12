@@ -10,10 +10,21 @@
   },
   "dependencies": {
     "@ant-design/nextjs-registry": "^1.0.1",
+    "@langchain/community": "^0.3.5",
+    "@langchain/core": "^0.3.10",
+    "@langchain/langgraph": "^0.2.14",
+    "@langchain/openai": "^0.3.7",
+    "@pinecone-database/pinecone": "^3.0.3",
     "antd": "^5.21.3",
+    "dotenv": "^16.4.5",
+    "faiss": "^1.0.0",
+    "faiss-node": "^0.5.1",
+    "langchain": "^0.3.2",
     "next": "14.2.15",
+    "openai": "^4.67.3",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "uuid": "^10.0.0"
   },
   "devDependencies": {
     "@types/node": "^20",

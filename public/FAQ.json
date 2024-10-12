@@ -1,0 +1,82 @@
+[
+  {
+    "Pergunta":"Quais são os horários de atendimento da FinTechX?",
+    "Resposta":"Nosso horário de atendimento é de segunda a sexta-feira, das 9h às 17h."
+  },
+  {
+    "Pergunta":"Onde estão localizados os escritórios da FinTechX?",
+    "Resposta":"A FinTechX possui escritórios em São Paulo, Rio de Janeiro e Belo Horizonte."
+  },
+  {
+    "Pergunta":"Quem fundou a FinTechX e quando?",
+    "Resposta":"A FinTechX foi fundada em 2015 por João Silva e Maria Souza."
+  },
+  {
+    "Pergunta":"Como a FinTechX protege minhas informações pessoais?",
+    "Resposta":"Utilizamos criptografia avançada e seguimos as melhores práticas do mercado para garantir a segurança dos dados dos nossos clientes."
+  },
+  {
+    "Pergunta":"Recebi um e-mail suspeito da FinTechX, o que devo fazer?",
+    "Resposta":"Recomendamos que você não clique em nenhum link e nos envie uma cópia do e-mail para phishing@fintechx.com para verificarmos a autenticidade."
+  },
+  {
+    "Pergunta":"Como posso aprender mais sobre investimentos e poupança?",
+    "Resposta":"Oferecemos uma série de cursos online e webinars gratuitos para nossos clientes. Visite nosso site para mais informações."
+  },
+  {
+    "Pergunta":"Quais são as taxas cobradas pela FinTechX?",
+    "Resposta":"As taxas variam de acordo com o tipo de serviço. Para uma lista completa, consulte nossa página de preços ou entre em contato com o nosso suporte."
+  },
+  {
+    "Pergunta":"A FinTechX oferece suporte via chat?",
+    "Resposta":"Sim, nosso chat está disponível no nosso site 24 horas por dia, 7 dias por semana, para tirar dúvidas e ajudar nossos clientes."
+  },
+  {
+    "Pergunta":"Como posso me inscrever para receber promoções e descontos da FinTechX?",
+    "Resposta":"Você pode se inscrever para receber nossas promoções e descontos diretamente pelo site ou entrando em contato com o nosso atendimento ao cliente."
+  },
+  {
+    "Pergunta":"Como posso fechar minha conta na FinTechX?",
+    "Resposta":"Para encerrar sua conta, entre em contato com nosso atendimento ao cliente pelo chat ou envie um e-mail para suporte@fintechx.com."
+  },
+  {
+    "Pergunta":"Como posso atualizar minhas informações de contato na FinTechX?",
+    "Resposta":"Você pode atualizar suas informações de contato acessando sua conta no nosso site ou entrando em contato com o suporte ao cliente."
+  },
+  {
+    "Pergunta":"Quais são os produtos oferecidos pela FinTechX?",
+    "Resposta":"Oferecemos contas digitais, cartões de crédito, empréstimos pessoais e serviços de investimento."
+  },
+  {
+    "Pergunta":"A FinTechX oferece algum tipo de cashback?",
+    "Resposta":"Sim, oferecemos cashback em compras realizadas com nossos cartões de crédito em lojas parceiras."
+  },
+  {
+    "Pergunta":"O que é necessário para abrir uma conta na FinTechX?",
+    "Resposta":"Para abrir uma conta, basta ser maior de 18 anos e apresentar um documento de identidade válido. Todo o processo pode ser feito online."
+  },
+  {
+    "Pergunta":"A FinTechX tem algum aplicativo para smartphone?",
+    "Resposta":"Sim, temos aplicativos disponíveis tanto para Android quanto para iOS. Você pode baixar pela Google Play ou App Store."
+  },
+  {
+    "Pergunta":"Como posso alterar minha senha da conta FinTechX?",
+    "Resposta":"Acesse sua conta no site ou no aplicativo e vá até as configurações de segurança para alterar sua senha."
+  },
+  {
+    "Pergunta":"O que fazer em caso de perda do cartão da FinTechX?",
+    "Resposta":"Em caso de perda, bloqueie imediatamente seu cartão pelo aplicativo e entre em contato com nosso suporte para solicitar um novo."
+  },
+  {
+    "Pergunta":"A FinTechX oferece crédito pessoal?",
+    "Resposta":"Sim, oferecemos opções de crédito pessoal com taxas competitivas e sem burocracia."
+  },
+  {
+    "Pergunta":"Posso realizar transações internacionais com a FinTechX?",
+    "Resposta":"Sim, nossas contas e cartões permitem transações internacionais com segurança e praticidade."
+  },
+  {
+    "Pergunta":"A FinTechX tem atendimento personalizado para empresas?",
+    "Resposta":"Sim, temos uma equipe dedicada ao atendimento de empresas, com soluções específicas para o setor corporativo."
+  }
+]
