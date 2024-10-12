@@ -1,24 +1,15 @@
 "use client";
-import SendMesageForm from "@/app/components/SendMesageForm";
-import MessageCards from "../components/MessageCards";
-import { theme, Typography } from "antd";
+import { theme, Form, Input  } from "antd";
 import UserMessage from "../components/UserMessage";
 import IAMessage from "../components/IAMessage";
 import BtnRegenerateResponse from "../components/BtnRegenerateResponse";
+import Image from "next/image";
 
-const suggestions = [
-  "Remembers what user said earlier in the conversation",
-  "Allows user to provide. follow-up corrections With Ai",
-  "Limited knowledge of world and events after 2021",
-  "May occasionally generate incorrect information",
-  "May occasionally produce harmful instructions or biased content",
-];
+type FormFieldsType = {
+  message: string;
+};
 
 export default function Home() {
-  const { useToken } = theme;
-  const {
-    token: { colorTextSecondary, colorTextTertiary },
-  } = useToken();
   return (
     <div className="flex flex-grow flex-col max-h-full justify-end">
       <div className="relative h-full max-h-full mb-4 flex-grow overflow-y-scroll justify-end">
@@ -26,22 +17,7 @@ export default function Home() {
           id="chat-box"
           className="absolute max-h-full bottom-0 flex flex-col gap-4"
         >
-          <Typography.Title
-            level={1}
-            style={{ color: colorTextTertiary }}
-            className="text-center"
-          >
-            BrainBox
-          </Typography.Title>
-          {suggestions.map((suggestion, index) => (
-            <MessageCards key={index}>
-              <p
-                className="text-center !mb-0 font-medium"
-              >
-                {suggestion}
-              </p>
-            </MessageCards>
-          ))}
+          
           <UserMessage>
             <p>Natural Foods for Cancer patience</p>
           </UserMessage>
@@ -58,7 +34,11 @@ export default function Home() {
           <BtnRegenerateResponse />
         </div>
       </div>
-      <SendMesageForm />
+      <Form className="send-a-message-box !mx-8 !my-6">
+      <Form.Item<FormFieldsType> className="!mb-0">
+        <Input placeholder="Send a message." className="h-[48px]" suffix={<Image alt="icon send" src="/assets/icons/send.svg" width={23} height={23} /> } />
+      </Form.Item>
+    </Form>
     </div>
   );
 }
