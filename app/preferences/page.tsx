@@ -76,14 +76,14 @@ export default function Profile() {
     {
       key: "invite-friends",
       label: (
-        <div className="flex flex-col gap-1">
+        <Link prefetch href="/invite-friends" className="flex flex-col gap-1">
           <Typography.Title level={5} className="!mb-0">
             Invite Your Friends
           </Typography.Title>
           <Typography.Text type="secondary">
             Get $3 For Each Invitation!
           </Typography.Text>
-        </div>
+        </Link>
       ),
       icon: (
         <Image
