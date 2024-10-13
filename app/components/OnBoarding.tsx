@@ -1,8 +1,15 @@
 import { Button, Carousel, Divider, Flex, theme, Typography } from "antd";
 import { CarouselRef } from "antd/es/carousel";
+import { Poppins } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useRef } from "react";
+
+const poppins = Poppins({
+  subsets: ["latin-ext"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"],
+})
 
 const CustomDots: React.FC<{ dots: number[]; active: number }> = ({
   dots,
@@ -39,7 +46,7 @@ const ItemCarousel: React.FC<{
   index: number;
 }> = ({ index }) => {
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center z-10 pt-10">
       <div className="relative">
         <Image
           className="absolute blur-3xl opacity-30"
@@ -59,7 +66,7 @@ const ItemCarousel: React.FC<{
         </div>
       </div>
       <CustomDots dots={[1, 2, 3]} active={index} />
-      <div className="px-8 mt-6">
+      <div className="px-12 mt-6">
         <Typography.Title level={2} className="!font-bold">
           {" "}
           Unlock the Power Of Future AI
@@ -80,14 +87,14 @@ const OnBoarding = () => {
   const sliderRef = useRef<CarouselRef>(null);
 
   return (
-    <div className="w-screen h-screen py-8 flex flex-col justify-center items-stretch text-center">
-      <Link className="self-end mb-auto mx-8" prefetch href="/chat">
-        <Button className="!font-semibold" type="text">
+    <div className="w-screen h-screen flex flex-col justify-center items-stretch text-center">
+      <Link className="fixed z-50 top-6 right-10" prefetch href="/chat">
+        <Button className={`!font-semibold !text-base ${poppins.className}`} type="text">
           Skip
         </Button>
       </Link>
       <div className="flex-grow">
-        <Carousel className="flex-grow" dotPosition="top" ref={sliderRef}>
+        <Carousel className="flex-grow" infinite={false} dots={false} ref={sliderRef}>
           <ItemCarousel index={0} />
           <ItemCarousel index={1} />
           <ItemCarousel index={2} />
@@ -95,7 +102,7 @@ const OnBoarding = () => {
       </div>
       <div
         style={{ backgroundColor: colorBgElevated }}
-        className={`flex gap-0 self-center justify-center items-center rounded-2xl p-4`}
+        className={`flex gap-0 self-center justify-center items-center rounded-2xl p-4 mb-10`}
       >
         <Button type="text" onClick={() => sliderRef.current?.prev()}>
           <Image

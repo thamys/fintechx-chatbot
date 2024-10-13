@@ -24,7 +24,7 @@ const App: React.FC<PropsWithChildren> = ({ children }) => {
 
   return (
     <Layout className="!min-h-screen flex flex-col flex-grow">
-      <Header className="!bg-transparent !py-10 !px-10 flex justify-between items-center gap-4">
+      <Header className="!bg-transparent !py-14 !px-10 flex justify-between items-center gap-4">
         <Link prefetch href="/">
           <Button
             shape="default"
