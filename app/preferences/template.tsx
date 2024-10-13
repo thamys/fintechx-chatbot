@@ -3,9 +3,8 @@ import React, { PropsWithChildren } from "react";
 import { Button, Layout, Typography } from "antd";
 import { Poppins } from "next/font/google";
 import Image from "next/image";
-import MenuBottom from "../components/MenuBottom";
 
-const { Header, Content, Footer } = Layout;
+const { Header, Content } = Layout;
 
 const poppins = Poppins({
   subsets: ["latin-ext"],

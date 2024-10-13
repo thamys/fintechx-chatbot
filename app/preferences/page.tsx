@@ -1,14 +1,9 @@
 "use client";
-import { Avatar, Badge, Flex, Progress, theme, Typography } from "antd";
+import { Typography } from "antd";
 import { MenuItemType } from "antd/es/menu/interface";
 import Image from "next/image";
 
 export default function Profile() {
-  const { useToken } = theme;
-  const {
-    token: { colorText },
-  } = useToken();
-
   const items: MenuItemType[] = [
     {
       key: "account-information",
@@ -100,7 +95,7 @@ export default function Profile() {
     <div className="px-10 py-8">
       <nav className="mt-6 flex flex-col gap-12">
         {items.map((item: MenuItemType) => (
-          <div className="flex gap-6 justify-between items-center">
+          <div key={item.key} className="flex gap-6 justify-between items-center">
             {item.icon}
             <div className="flex-grow">
               {item.label}

@@ -9,7 +9,7 @@ import { PromptTemplate } from "@langchain/core/prompts";
 
 // Inicializando o cliente Pinecone
 const pinecone = new Pinecone({
-  apiKey: process.env.PINECONE_API_KEY!
+  apiKey: process.env.PINECONE_API_KEY!,
 });
 
 // Função para carregar o JSON
@@ -20,17 +20,18 @@ async function loadJsonData() {
   const fileContent = fs.readFileSync(filePath, "utf-8");
   const documents = JSON.parse(fileContent);
 
-  
   // Transformar os documentos em formato adequado para Pinecone
-  const formattedDocuments = documents.map((item: any) => ({
-    pageContent: `Pergunta: ${item.Pergunta}\nResposta: ${item.Resposta}`,
-  }));
+  const formattedDocuments = documents.map(
+    (item: { Pergunta: string; Resposta: string }) => ({
+      pageContent: `Pergunta: ${item.Pergunta}\nResposta: ${item.Resposta}`,
+    })
+  );
 
   return formattedDocuments;
 }
 
 // Função para gerar embeddings e configurar o banco de dados no Pinecone
-async function setupDB(documents: any[]) {
+async function setupDB(documents: [{ pageContent: string }]) {
   const embeddings = new OpenAIEmbeddings();
 
   // Indexando documentos no Pinecone

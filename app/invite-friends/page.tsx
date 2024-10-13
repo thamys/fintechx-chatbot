@@ -1,13 +1,8 @@
 "use client";
-import { Avatar, Badge, Button, Flex, Progress, theme, Typography } from "antd";
-import { MenuItemType } from "antd/es/menu/interface";
+import { Button, Typography } from "antd";
 import Image from "next/image";
 
 export default function Profile() {
-  const { useToken } = theme;
-  const {
-    token: { colorText },
-  } = useToken();
 
   return (
     <div className="px-10 py-8 flex flex-col flex-grow h-full gap-10 justify-center items-center">

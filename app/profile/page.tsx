@@ -119,7 +119,7 @@ export default function Profile() {
       </Flex>
       <nav className="mt-20 px-4 flex flex-col gap-8">
         {items.map((item: MenuItemType) => (
-          <div className="flex gap-4 justify-between items-start">
+          <div key={item.key} className="flex gap-4 justify-between items-start">
             {item.icon}
             <div className="flex-grow mt-[5px]">
               {typeof item.label === "string" ? (

@@ -1,11 +1,9 @@
 "use client";
 import React, { PropsWithChildren } from "react";
-import { Button, Layout, Typography } from "antd";
+import { Layout, Typography } from "antd";
 import { Poppins } from "next/font/google";
-import Image from "next/image";
-import MenuBottom from "../components/MenuBottom";
 
-const { Header, Content, Footer } = Layout;
+const { Header, Content } = Layout;
 
 const poppins = Poppins({
   subsets: ["latin-ext"],
@@ -14,14 +12,6 @@ const poppins = Poppins({
 });
 
 const App: React.FC<PropsWithChildren> = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = React.useState(false);
-
-  React.useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    setIsDarkMode(mediaQuery.matches);
-    mediaQuery.addEventListener("change", (e) => setIsDarkMode(e.matches));
-  }, []);
-
   return (
     <Layout className="!min-h-screen w-full flex flex-col flex-grow">
       <Header className="!bg-transparent !py-14 !px-10 flex justify-center items-center">

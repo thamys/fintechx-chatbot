@@ -25,6 +25,7 @@ export default function Home() {
   const [isRegenerating, setIsRegenerating] = useState(false);
 
   async function onSendMessage(values: FormFieldsType) {
+    setIsLastMessageUser(true);
     setIsLoading(true);
     const message = values.message;
     setChatMessages((prev) => [...prev, { message, isUser: true }]);
@@ -35,6 +36,18 @@ export default function Home() {
       { message: response.toString(), isUser: false },
     ]);
     setIsLoading(false);
+    setIsLastMessageUser(false);
+  }
+
+  async function onRegenerateResponse() {
+    setIsRegenerating(true);
+    const lastMessage = chatMessages[chatMessages.length - 2].message;
+    const response = await generateResponse(lastMessage);
+    setChatMessages((prev) => [
+      ...prev.slice(0, -1),
+      { message: response.toString(), isUser: false },
+    ]);
+    setIsRegenerating(false);
   }
 
   return (
@@ -57,7 +70,7 @@ export default function Home() {
             )
           )}
           {!isLoading && !isLastMessageUser && chatMessages.length > 0 && (
-            <BtnRegenerateResponse />
+            <BtnRegenerateResponse onClick={onRegenerateResponse} />
           )}
         </div>
       </div>
