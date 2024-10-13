@@ -1,36 +1,101 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FinTechX Chatbot
 
-## Getting Started
+Este projeto é uma aplicação de chatbot inteligente desenvolvida para aprimorar a comunicação e o suporte ao cliente da FinTechX, utilizando **React** com **Next.js 14**, **Ant Design**, **Tailwind CSS**, **Langchain**, **Pinecone**, e a **OpenAI API**.
 
-First, run the development server:
+## **Tecnologias Utilizadas**
+- **React (Next.js 14)**: Framework de desenvolvimento web.
+- **Ant Design**: Biblioteca de componentes de UI.
+- **Tailwind CSS**: Framework utilitário para estilização.
+- **Langchain**: Para gerenciamento de fluxos de conversa e interação com LLM.
+- **Pinecone**: Serviço de indexação para consultas rápidas.
+- **OpenAI API**: Utilizada para gerar respostas automáticas baseadas em linguagem natural.
+- **Docker**: Para containerização e facilitação do ambiente de desenvolvimento e produção.
+
+## **Configuração do Ambiente**
+
+### **Variáveis de Ambiente**
+O projeto utiliza as seguintes variáveis de ambiente. Crie um arquivo `.env.local` na raiz do projeto e defina os valores correspondentes:
+
+```bash
+OPENAI_API_KEY=
+PINECONE_API_KEY=
+```
+### **Pré-requisitos**
+- Node.js (versão 16 ou superior)
+- NPM ou Yarn
+- Docker
+
+### **Instalação**
+
+1. Clone este repositório:
+```bash
+git clone https://github.com/thamys/fintechx-chatbot.git
+```
+2. Navegue até o diretório do projeto:
+```bash
+cd fintechx-chatbot
+````
+3. Instale as dependências:
+```bash
+npm install
+# ou
+yarn install
+```
+4. Configure as variáveis de ambiente conforme descrito na seção anterior.
+
+### **Rodando o Projeto**
+
+#### **Com Docker**
+1. Certifique-se de que o Docker está instalado e rodando no seu sistema.
+
+2. Para construir a imagem do Docker:
+```bash
+docker build --pull --rm -t fintechx:latest .
+```
+
+3. Para rodar o container:
+```bash
+docker run --rm -d -p 3000:3000/tcp fintechx:latest
+```
+
+4. O projeto estará acessível em `http://localhost:3000`.
+
+#### **Sem Docker**
+Para rodar o projeto em ambiente de desenvolvimento:
 
 ```bash
 npm run dev
-# or
+# ou
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+O projeto estará acessível em `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### **Build para Produção**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Para gerar a build de produção:
 
-## Learn More
+```bash
+npm run build
+# ou
+yarn build
+```
 
-To learn more about Next.js, take a look at the following resources:
+Para rodar a build:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm start
+# ou
+yarn start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### **Deploy**
+O projeto pode ser facilmente implantado em plataformas como **Vercel** ou **Netlify**. Siga a documentação das respectivas plataformas para mais detalhes sobre como fazer o deploy.
 
-## Deploy on Vercel
+## **Funcionalidades Principais**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Chatbot Inteligente**: Respostas automáticas utilizando a OpenAI API para simulação de um atendimento eficiente e personalizado.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Interface Responsiva**: Desenvolvida utilizando Ant Design e Tailwind para oferecer uma experiência fluida em dispositivos móveis e desktop.
+
+- **Integração com Pinecone e Langchain**: Implementação de um sistema de indexação rápida e gestão de fluxos de conversa, fornecendo uma experiência rica e dinâmica ao usuário.
