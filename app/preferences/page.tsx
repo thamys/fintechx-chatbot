@@ -2,20 +2,25 @@
 import { Typography } from "antd";
 import { MenuItemType } from "antd/es/menu/interface";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Profile() {
   const items: MenuItemType[] = [
     {
       key: "account-information",
       label: (
-        <div className="flex flex-col gap-1">
+        <Link
+          prefetch
+          href="/account-informations"
+          className="flex flex-col gap-1"
+        >
           <Typography.Title level={5} className="!mb-0">
             Account Information
           </Typography.Title>
           <Typography.Text type="secondary">
             Change your Account information
           </Typography.Text>
-        </div>
+        </Link>
       ),
       icon: (
         <Image
@@ -95,11 +100,12 @@ export default function Profile() {
     <div className="px-10 py-8">
       <nav className="mt-6 flex flex-col gap-12">
         {items.map((item: MenuItemType) => (
-          <div key={item.key} className="flex gap-6 justify-between items-center">
+          <div
+            key={item.key}
+            className="flex gap-6 justify-between items-center"
+          >
             {item.icon}
-            <div className="flex-grow">
-              {item.label}
-            </div>
+            <div className="flex-grow">{item.label}</div>
           </div>
         ))}
       </nav>

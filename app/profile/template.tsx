@@ -4,6 +4,7 @@ import { Button, Layout, Typography } from "antd";
 import { Poppins } from "next/font/google";
 import Image from "next/image";
 import MenuBottom from "../components/MenuBottom";
+import Link from "next/link";
 
 const { Header, Content, Footer } = Layout;
 
@@ -25,22 +26,24 @@ const App: React.FC<PropsWithChildren> = ({ children }) => {
   return (
     <Layout className="!min-h-screen w-full flex flex-col flex-grow">
       <Header className="!bg-transparent !py-14 !px-10 flex justify-between items-center gap-4">
-        <Button
-          shape="default"
-          type="default"
-          className="!h-[45px] !w-[45px] !rounded-2xl !border-none"
-        >
-          <Image
-            alt="arrow left icon"
-            src={
-              isDarkMode
-                ? "/assets/icons/arrow-left-dark.svg"
-                : "/assets/icons/arrow-left.svg"
-            }
-            width={8}
-            height={14}
-          />
-        </Button>
+        <Link prefetch href="/chat">
+          <Button
+            shape="default"
+            type="default"
+            className="!h-[45px] !w-[45px] !rounded-2xl !border-none"
+          >
+            <Image
+              alt="arrow left icon"
+              src={
+                isDarkMode
+                  ? "/assets/icons/arrow-left-dark.svg"
+                  : "/assets/icons/arrow-left.svg"
+              }
+              width={8}
+              height={14}
+            />
+          </Button>
+        </Link>
         <Typography.Title
           level={4}
           style={{ fontFamily: poppins.style.fontFamily }}

@@ -2,6 +2,25 @@
 import { Avatar, Badge, Flex, Progress, theme, Typography } from "antd";
 import { MenuItemType } from "antd/es/menu/interface";
 import Image from "next/image";
+import Link from "next/link";
+
+const SettingsLink: React.FC<{ item: MenuItemType }> = ({ item }) => {
+  return (
+    <>
+      {item.icon}
+      <div className="flex-grow mt-[5px]">
+        {typeof item.label === "string" ? (
+          <Typography.Title level={5} className="!mb-0">
+            {item.label}
+          </Typography.Title>
+        ) : (
+          item.label
+        )}
+      </div>
+      <>{item.itemIcon}</>
+    </>
+  );
+};
 
 export default function Profile() {
   const { useToken } = theme;
@@ -118,21 +137,25 @@ export default function Profile() {
         <Typography.Text type="secondary">Tomhill@mail.com</Typography.Text>
       </Flex>
       <nav className="mt-20 px-4 flex flex-col gap-8">
-        {items.map((item: MenuItemType) => (
-          <div key={item.key} className="flex gap-4 justify-between items-start">
-            {item.icon}
-            <div className="flex-grow mt-[5px]">
-              {typeof item.label === "string" ? (
-                <Typography.Title level={5} className="!mb-0">
-                  {item.label}
-                </Typography.Title>
-              ) : (
-                item.label
-              )}
+        {items.map((item: MenuItemType) =>
+          item.key === "preferences" ? (
+            <Link
+              prefetch
+              href={`/${item.key}`}
+              key={item.key}
+              className="flex gap-4 justify-between items-start"
+            >
+              <SettingsLink item={item} />
+            </Link>
+          ) : (
+            <div
+              key={item.key}
+              className="flex gap-4 justify-between items-start"
+            >
+              <SettingsLink item={item} />
             </div>
-            <>{item.itemIcon}</>
-          </div>
-        ))}
+          )
+        )}
       </nav>
     </div>
   );

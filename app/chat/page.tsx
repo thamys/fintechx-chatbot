@@ -17,7 +17,7 @@ type ChatMessageType = {
   isUser: boolean;
 };
 
-export default function Home() {
+export default function Chat() {
   const [form] = Form.useForm();
   const [chatMessages, setChatMessages] = useState<ChatMessageType[]>([]);
   const [isLastMessageUser, setIsLastMessageUser] = useState(false);
