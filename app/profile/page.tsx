@@ -127,7 +127,8 @@ export default function Profile() {
               prefetch
               href={`/${item.key}`}
               key={item.key}
-              className="flex gap-4 justify-between items-start text-current hover:shadow-sm p-4 rounded-lg"
+              style={{ color: colorText }}
+              className={`flex gap-4 justify-between items-start text-current hover:bg-current !bg-opacity-5 p-4 rounded-lg`}
             >
               <SettingsLink item={item} />
             </Link>

@@ -39,7 +39,7 @@ const OnBoarding = () => {
   }, [current]);
 
   return (
-    <div className="w-screen h-screen flex flex-col justify-center items-stretch text-center pb-10 pt-8">
+    <div className="flex flex-col justify-center items-stretch text-center pb-10 pt-8">
       <Link prefetch href="/chat" className="self-end mr-10">
         <Button
           className={`!font-semibold !text-base ${poppins.className}`}

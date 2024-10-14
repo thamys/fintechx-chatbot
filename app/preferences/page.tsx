@@ -1,10 +1,14 @@
 "use client";
 import { Typography } from "antd";
 import { MenuItemType } from "antd/es/menu/interface";
-import Image from "next/image";
 import Link from "next/link";
+import IconUserFilled from "../components/icons/IconUserFilled";
+import IconPasswordFilled from "../components/icons/IconPasswordFilled";
+import IconWalletFilled from "../components/icons/IconWalletFilled";
+import IconPencilFilled from "../components/icons/IconPencilFilled";
 
 export default function Profile() {
+
   const items: MenuItemType[] = [
     {
       key: "account-information",
@@ -12,7 +16,7 @@ export default function Profile() {
         <Link
           prefetch
           href="/account-informations"
-          className="flex flex-col gap-1"
+          className="flex flex-col gap-1 hover:bg-trasparent 5 p-4 rounded-lg"
         >
           <Typography.Title level={5} className="!mb-0">
             Account Information
@@ -22,14 +26,7 @@ export default function Profile() {
           </Typography.Text>
         </Link>
       ),
-      icon: (
-        <Image
-          alt="Icon Settings"
-          width={32}
-          height={32}
-          src="/assets/icons/settings.svg"
-        />
-      ),
+      icon: <IconUserFilled />,
     },
     {
       key: "password",
@@ -43,14 +40,7 @@ export default function Profile() {
           </Typography.Text>
         </div>
       ),
-      icon: (
-        <Image
-          alt="Icon Lock"
-          width={32}
-          height={32}
-          src="/assets/icons/lock.svg"
-        />
-      ),
+      icon: <IconPasswordFilled />,
     },
     {
       key: "payment-methods",
@@ -64,14 +54,7 @@ export default function Profile() {
           </Typography.Text>
         </div>
       ),
-      icon: (
-        <Image
-          alt="Icon Settings"
-          width={32}
-          height={32}
-          src="/assets/icons/settings.svg"
-        />
-      ),
+      icon: <IconWalletFilled />,
     },
     {
       key: "invite-friends",
@@ -85,24 +68,17 @@ export default function Profile() {
           </Typography.Text>
         </Link>
       ),
-      icon: (
-        <Image
-          alt="Icon Lock"
-          width={32}
-          height={32}
-          src="/assets/icons/lock.svg"
-        />
-      ),
+      icon: <IconPencilFilled />,
     },
   ];
 
   return (
-    <div className="px-10 py-8">
-      <nav className="mt-6 flex flex-col gap-12">
+    <div className="px-8">
+      <nav className="mt-6 flex flex-col gap-6">
         {items.map((item: MenuItemType) => (
           <div
             key={item.key}
-            className="flex gap-6 justify-between items-center"
+            className="flex gap-6 justify-between items-center hover:bg-current !bg-opacity-5 p-4 rounded-lg"
           >
             {item.icon}
             <div className="flex-grow">{item.label}</div>

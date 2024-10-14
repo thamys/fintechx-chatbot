@@ -13,7 +13,7 @@ const poppins = Poppins({
 
 const App: React.FC<PropsWithChildren> = ({ children }) => {
   return (
-    <Layout className="!min-h-screen w-full flex flex-col flex-grow">
+    <Layout className="!min-h-screen w-full flex flex-col flex-grow max-w-screen-lg m-auto">
       <Header className="!bg-transparent !py-14 !px-10 flex justify-center items-center">
         <Typography.Title
           level={4}
