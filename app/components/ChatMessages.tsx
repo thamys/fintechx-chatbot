@@ -1,5 +1,4 @@
-import React, { RefObject, useEffect, useRef } from "react";
-import { InputRef } from "antd";
+import React, { useEffect, useRef } from "react";
 import ChatWelcomeMessages from "./ChatWelcomeMessages";
 import UserMessage from "./UserMessage";
 import IAMessage from "./IAMessage";
@@ -11,8 +10,7 @@ type ChatMessageType = {
 
 const ChatMessages: React.FC<{
   chatMessages: ChatMessageType[];
-  inputRef: RefObject<InputRef>;
-}> = ({ chatMessages, inputRef }) => {
+}> = ({ chatMessages }) => {
   const chatBoxRef = useRef<HTMLDivElement>(null);
 
   const scrollToLastMessage = () => {
@@ -22,7 +20,6 @@ const ChatMessages: React.FC<{
 
   useEffect(() => {
     scrollToLastMessage();
-    inputRef.current?.focus();
   }, [chatMessages]);
 
   return (

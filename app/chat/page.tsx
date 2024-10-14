@@ -30,13 +30,13 @@ export default function Chat() {
     const message = values.message;
     setChatMessages((prev) => [...prev, { message, isUser: true }]);
     form.resetFields();
-    // const response = await generateResponse(message);
-    // setChatMessages((prev) => [
-    //   ...prev,
-    //   { message: response.toString(), isUser: false },
-    // ]);
+    const response = await generateResponse(message);
+    setChatMessages((prev) => [
+      ...prev,
+      { message: response.toString(), isUser: false },
+    ]);
     setIsLoading(false);
-    //setIsLastMessageUser(false);
+    setIsLastMessageUser(false);
   }
 
   async function onRegenerateResponse() {
@@ -54,7 +54,6 @@ export default function Chat() {
     <div className="flex flex-grow flex-col max-h-full justify-end">
       <div className="relative h-full max-h-full mb-4 flex-grow overflow-y-scroll justify-end">
         <ChatMessages
-          inputRef={InputRef}
           chatMessages={chatMessages}
         />
       </div>
