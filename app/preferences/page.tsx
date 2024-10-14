@@ -77,8 +77,9 @@ export default function Profile() {
       <nav className="mt-6 flex flex-col gap-6">
         {items.map((item: MenuItemType) => (
           <div
+
             key={item.key}
-            className="flex gap-6 justify-between items-center hover:bg-current !bg-opacity-5 p-4 rounded-lg"
+            className="customLink flex gap-6 justify-between items-center p-4 rounded-lg"
           >
             {item.icon}
             <div className="flex-grow">{item.label}</div>

@@ -13,6 +13,10 @@
     --foreground: #ededed;
   }
 
+ .customLink:hover {
+    background-color: #232627;
+  }
+
   .ant-menu-light.ant-menu-horizontal >.ant-menu-item-selected {
     color: #ffffff !important;
   }
@@ -70,6 +74,11 @@ body {
 }
 
 @media (prefers-color-scheme: light) {
+
+  .customLink:hover {
+    background-color: #F7F7F8;
+  }
+
   .send-a-message-box {
     box-shadow: 0px 4px 77px 0px rgba(227, 226, 226, 1);
   }
