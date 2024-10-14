@@ -18,6 +18,8 @@ const lightTheme: ThemeConfig = {
     colorPrimary: "#141718",
     colorBgElevated: "#F7F7F8",
     fontFamily: urbanist.style.fontFamily,
+    colorFillSecondary: "#CBCCCD",
+    colorTextSecondary: "#616161",
   },
   components: {
     Typography: {
@@ -47,6 +49,7 @@ const darkTheme: ThemeConfig = {
     colorPrimaryActive: "#FFFFFF",
     colorBgElevated: "#232627",
     fontFamily: urbanist.style.fontFamily,
+    colorFillSecondary: "#BDBDBD",
   },
   components: {
     Typography: {
