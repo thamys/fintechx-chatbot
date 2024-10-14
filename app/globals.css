@@ -69,4 +69,18 @@ body {
   .ant-layout {
     background-color: #ffffff !important;
   }
+
+  .ant-input-outlined {
+    border-color: #DDDDE4 !important;
+    color: #DDDDE4 !important;
+  }
+
+  .ant-input-outlined:focus-within {
+    border: none !important;
+    color: #141718 !important;
+  }
+
+  .ant-input-outlined:focus-within svg {
+    color: #141718 !important;
+  }
 }

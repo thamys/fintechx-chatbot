@@ -7,7 +7,7 @@ const MessageCards: React.FC<PropsWithChildren> = ({ children }) => {
   const {
     token: { colorTextTertiary },
   } = useToken();
-  return <Card bordered={false} style={{ color: colorTextTertiary }} className="!rounded-2xl !mx-8">{children}</Card>;
+  return <Card bordered={false} style={{ color: colorTextTertiary }} className="!rounded-2xl !shadow-none !mx-10">{children}</Card>;
 };
 
 export default MessageCards;

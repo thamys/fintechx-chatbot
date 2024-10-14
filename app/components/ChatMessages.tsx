@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import ChatWelcomeMessages from "./ChatWelcomeMessages";
 import UserMessage from "./UserMessage";
 import IAMessage from "./IAMessage";
+import { InputRef } from "antd";
 
 type ChatMessageType = {
   isUser: boolean;
@@ -10,7 +11,8 @@ type ChatMessageType = {
 
 const ChatMessages: React.FC<{
   chatMessages: ChatMessageType[];
-}> = ({ chatMessages }) => {
+  inputRef: React.RefObject<InputRef>;
+}> = ({ chatMessages, inputRef }) => {
   const chatBoxRef = useRef<HTMLDivElement>(null);
 
   const scrollToLastMessage = () => {
@@ -20,14 +22,15 @@ const ChatMessages: React.FC<{
 
   useEffect(() => {
     scrollToLastMessage();
-  }, [chatMessages]);
+    inputRef.current?.focus();
+  }, [chatMessages, inputRef]);
 
   return (
     <div
       ref={chatBoxRef}
       id="chat-box"
       style={{ height: "300px" }}
-      className="absolute scroll-smooth w-full bottom-0 flex flex-col justify-center gap-4"
+      className="absolute scroll-smooth w-full bottom-0 flex flex-col justify-end gap-4"
     >
       {chatMessages.length === 0 && <ChatWelcomeMessages />}
       {chatMessages.map((chatMessage, index) =>

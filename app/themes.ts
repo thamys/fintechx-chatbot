@@ -20,6 +20,7 @@ const lightTheme: ThemeConfig = {
     fontFamily: urbanist.style.fontFamily,
     colorFillSecondary: "#CBCCCD",
     colorTextSecondary: "#616161",
+    colorTextTertiary: "#A0A0A5",
   },
   components: {
     Typography: {
@@ -36,9 +37,12 @@ const lightTheme: ThemeConfig = {
       borderRadius: 7,
       colorBorder: "#E1E1E1",
       fontSize: 16,
+      colorText: "#616161",
     },
     Card: {
       borderRadius: 16,
+      colorBgContainer: "#F7F7F8",
+      boxShadow: "none",
     },
   },
 };

@@ -55,6 +55,7 @@ export default function Chat() {
       <div className="relative h-full max-h-full mb-4 flex-grow overflow-y-scroll justify-end">
         <ChatMessages
           chatMessages={chatMessages}
+          inputRef={InputRef}
         />
       </div>
       {!isLoading &&
@@ -70,7 +71,7 @@ export default function Chat() {
         disabled={isLoading || isRegenerating}
         form={form}
         onFinish={onSendMessage}
-        className="send-a-message-box !mx-8 !my-6"
+        className="send-a-message-box !mx-10 !my-6"
       >
         <Form.Item<FormFieldsType>
           name="message"
@@ -83,6 +84,7 @@ export default function Chat() {
             disabled={isLoading || isRegenerating}
             placeholder="Send a message."
             className="h-[48px] !pr-0"
+            variant="outlined"
             suffix={<BtnSend isLoading={isLoading || isRegenerating} />}
           />
         </Form.Item>

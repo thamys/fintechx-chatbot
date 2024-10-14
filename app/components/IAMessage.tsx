@@ -8,7 +8,7 @@ const IAMessage: React.FC<PropsWithChildren> = ({ children }) => {
     token: { colorTextTertiary, colorBgElevated },
   } = useToken();
   return (
-    <div style={{ backgroundColor: colorBgElevated }} className="w-full flex flex-col gap-4 mt-2 py-4 px-8">
+    <div style={{ backgroundColor: colorBgElevated }} className="w-full flex flex-col gap-4 mt-2 pt-4 pb-8 px-8">
       <div
         className="flex gap-4 mb-2 justify-between items-center"
       >
