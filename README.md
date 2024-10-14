@@ -21,7 +21,7 @@ OPENAI_API_KEY=
 PINECONE_API_KEY=
 ```
 ### **Pré-requisitos**
-- Node.js (versão 16 ou superior)
+- Node.js (versão 18.17.0 ou superior)
 - NPM ou Yarn
 - Docker
 
