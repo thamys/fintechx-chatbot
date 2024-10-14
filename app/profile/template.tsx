@@ -1,6 +1,6 @@
 "use client";
 import React, { PropsWithChildren } from "react";
-import { Button, Layout, Typography } from "antd";
+import { Button, Layout, theme, Typography } from "antd";
 import { Poppins } from "next/font/google";
 import Image from "next/image";
 import MenuBottom from "../components/MenuBottom";
@@ -16,6 +16,10 @@ const poppins = Poppins({
 
 const App: React.FC<PropsWithChildren> = ({ children }) => {
   const [isDarkMode, setIsDarkMode] = React.useState(false);
+  const { useToken } = theme;
+  const {
+    token: { colorBgBase },
+  } = useToken();
 
   React.useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
@@ -53,7 +57,7 @@ const App: React.FC<PropsWithChildren> = ({ children }) => {
         </Typography.Title>
       </Header>
       <Content className="h-full flex flex-col flex-grow">{children}</Content>
-      <Footer>
+      <Footer style={{ backgroundColor: colorBgBase }}>
         <MenuBottom />
       </Footer>
     </Layout>

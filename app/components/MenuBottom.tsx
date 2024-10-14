@@ -1,53 +1,40 @@
 import React, { useState } from "react";
 import { Tabs } from "antd";
-import Image from "next/image";
+import IconHome from "./icons/IconHome";
+import IconApps from "./icons/IconApps";
+import IconHistory from "./icons/IconHistory";
+import IconUser from "./icons/IconUser";
 
 const items = [
   {
     key: "home",
     label: (
-      <Image
-        alt="Icon Home"
-        width={28}
-        height={28}
-        src="/assets/icons/home.svg"
-        className="mt-3 pb-4"
+      <IconHome
+        className="mt-3 mb-4"
       />
     ),
   },
   {
     key: "apps",
     label: (
-      <Image
-        alt="Icon Apps"
-        width={28}
-        height={28}
-        src="/assets/icons/apps.svg"
-        className="mt-3 pb-4"
+      <IconApps
+        className="mt-3 mb-4"
       />
     ),
   },
   {
     key: "history",
     label: (
-      <Image
-        alt="Icon History"
-        width={28}
-        height={28}
-        src="/assets/icons/history.svg"
-        className="mt-3 pb-4"
+      <IconHistory
+        className="mt-3 mb-4"
       />
     ),
   },
   {
     key: "profile",
     label: (
-      <Image
-        alt="Icon User"
-        width={28}
-        height={28}
-        src="/assets/icons/user.svg"
-        className="mt-3 pb-4"
+      <IconUser
+        className="mt-3 mb-4"
       />
     ),
   },
